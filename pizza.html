@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #5a5a5a;
+        }
+        header, main, footer {
+            margin-bottom: 20px;
+        }
+        fieldset {
+            margin-bottom: 20px;
+        }
+        .form-section {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .submit-buttons {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Order Your Pizza Online</h1>
+    </header>
+    
+    <main>
+        <form action="/submit-pizza-order" method="POST">
+            <!-- Количество пыци -->
+            <fieldset>
+                <legend>Pizza Quantity</legend>
+                <div class="form-section">
+                    <label for="num-pizzas">Number of Pizzas:</label>
+                    <input type="number" id="num-pizzas" name="num_pizzas" min="1" max="10" required>
+                </div>
+            </fieldset>
+            
+            <!-- детали пыци -->
+            <fieldset>
+                <legend>Pizza Details</legend>
+                
+                <!-- розмер пыци -->
+                <div class="form-section">
+                    <label for="size">Size:</label>
+                    <select id="size" name="size" required>
+                        <option value="small">Small (6 slices)</option>
+                        <option value="medium">Medium (8 slices)</option>
+                        <option value="large">Large (12 slices)</option>
+                    </select>
+                </div>
+                
+                <!-- форма пыци -->
+                <div class="form-section">
+                    <label>Shape:</label>
+                    <input type="radio" id="round" name="shape" value="round" required>
+                    <label for="round">Round</label>
+                    <input type="radio" id="square" name="shape" value="square">
+                    <label for="square">Square</label>
+                </div>
+                
+                <!-- тип пыци -->
+                <div class="form-section">
+                    <label>Crust Type:</label>
+                    <select name="crust_type" required>
+                        <option value="thin">Thin Crust</option>
+                        <option value="thick">Thick Crust</option>
+                        <option value="stuffed">Stuffed Crust</option>
+                        <option value="deep-dish">Deep Dish</option>
+                    </select>
+                </div>
+                
+                <!-- добавкы -->
+                <div class="form-section">
+                    <label>Toppings:</label>
+                    <input type="checkbox" id="pepperoni" name="toppings" value="pepperoni">
+                    <label for="pepperoni">Pepperoni</label>
+                    <input type="checkbox" id="mushrooms" name="toppings" value="mushrooms">
+                    <label for="mushrooms">Mushrooms</label>
+                    <input type="checkbox" id="onions" name="toppings" value="onions">
+                    <label for="onions">Onions</label>
+                    <input type="checkbox" id="sausage" name="toppings" value="sausage">
+                    <label for="sausage">Sausage</label>
+                    <input type="checkbox" id="bacon" name="toppings" value="bacon">
+                    <label for="bacon">Bacon</label>
+                    <input type="checkbox" id="extra-cheese" name="toppings" value="extra-cheese">
+                    <label for="extra-cheese">Extra Cheese</label>
+                    <input type="checkbox" id="olives" name="toppings" value="olives">
+                    <label for="olives">Olives</label>
+                </div>
+            </fieldset>
+            
+            <!-- опции доставки -->
+            <fieldset>
+                <legend>Delivery Options</legend>
+                <div class="form-section">
+                    <label>Order Type:</label>
+                    <input type="radio" id="take-out" name="order_type" value="take-out" required>
+                    <label for="take-out">Take Out</label>
+                    <input type="radio" id="delivery" name="order_type" value="delivery">
+                    <label for="delivery">Delivery</label>
+                    <input type="radio" id="eat-in" name="order_type" value="eat-in">
+                    <label for="eat-in">Eat In</label>
+                </div>
+                
+                <div class="form-section">
+                    <label for="address">Delivery Address:</label>
+                    <textarea id="address" name="address" rows="4" placeholder="Enter your delivery address"></textarea>
+                </div>
+            </fieldset>
+            
+            <!-- контактная инфа -->
+            <fieldset>
+                <legend>Contact Information</legend>
+                <div class="form-section">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="full_name" required>
+                </div>
+                
+                <div class="form-section">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone_number" required>
+                </div>
+                
+                <div class="form-section">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </fieldset>
+            
+            <!-- подтверждения заказа -->
+            <div class="form-section submit-buttons">
+                <input type="submit" value="Place Order">
+                <input type="reset" value="Reset Form">
+            </div>
+        </form>
+        
+        <!-- фотка пыци -->
+        <p>
+            <img src="f6b81042-d07f-41ab-85bd-1eaed0dab626.png" alt="Delicious pizza with various toppings">
+        </p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Vafledron Pizza. All rights reserved.</p>
+    </footer>
+</body>
+</html>
